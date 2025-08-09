@@ -26,6 +26,8 @@ Key Features:
 - **Non-idempotent → The action changes state in a way that can’t be repeated safely (bank transfer, file append).**
 - **Deduplication → Tracking transaction_id or message_id ensures we don’t accidentally apply the same change twice.**
 
+----------------------------------------------------------------------------------------------------------
+
 # 3. Synchronous System Project – "Ping-Pong Game Server"
 Concept:
 - In a synchronous system, nodes operate in lockstep, and messages have known fixed delays.
@@ -60,3 +62,51 @@ Idea: Flask API to store and manage a user's to-do list in memory.
 Key Point: The server retains the list in tasks across requests — client state depends on prior interactions.
 
 <img width="1059" height="402" alt="image" src="https://github.com/user-attachments/assets/3f055222-e614-4fa0-8491-15ee91d8183f" />
+
+----------------------------------------------------------------------------------------------------------
+# 7. Fail-stop Failure - "Cluster with Heartbeat Detection"
+
+Definition Recap:
+A node halts and stays halted forever, and other nodes can detect it quickly.
+
+Idea:
+- Multiple nodes send heartbeats to a coordinator every second.
+- One node is programmed to stop permanently.
+- Coordinator detects this and logs "Node X failed permanently".
+
+# 8. Crash Failure - "Unresponsive Worker"
+
+Idea:
+- Master sends tasks to workers.
+- Worker suddenly stops processing tasks but doesn’t announce failure.
+- Master must infer after repeated timeouts.
+
+Key Learning: Detecting crash failures always relies on timeouts.
+
+
+# 9. Omission Failure - "Flaky API Simulation"
+Definition Recap: Node sometimes fails to respond to requests (but still works intermittently).
+
+Idea:
+- Client sends 10 requests to a server.
+- Server randomly ignores some requests (doesn’t respond).
+- Client retries until success.
+
+# 10. Byzantine Failure - "Malicious Chat Node"
+Definition Recap: Node behaves arbitrarily (maliciously or due to a bug), violating protocol.
+
+Idea:
+- Multiple chat nodes broadcast messages.
+  
+- One node:
+ - Sends wrong timestamps,
+ - Sends random junk,
+ - Lies about other nodes’ messages.
+
+Real world other examples:
+- Fail-stop → Like a server powered off permanently (can be shown via Kubernetes pod deletion).
+- Crash → Process killed without cleanup (simulate with kill -9).
+- Omission → Network packet loss simulation (use tc in Linux).
+- Byzantine → Modify a blockchain node to send wrong blocks (simulated in a private Ethereum testnet).
+
+----------------------------------------------------------------------------------------------------------
