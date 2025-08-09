@@ -39,4 +39,11 @@ Key Point: The round only finishes when both players’ actions are received.
 
 # 4. Asynchronous System Project – "Chat Without Guarantees"
 - Concept: No assumptions about message delivery time — messages can be delayed or arrive out of order.
-- Idea: A chat simulator where messages from users may arrive in random order and with random delays.  
+- Idea: A chat simulator where messages from users may arrive in random order and with random delays.
+
+# 5. Stateless System Project – "Currency Converter API"
+Concept:
+- Stateless system doesn’t remember previous requests.
+- Each request is independent and carries all necessary data.
+
+Idea:A simple Flask API that converts currency without storing anything between calls.
