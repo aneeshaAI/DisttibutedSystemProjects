@@ -22,3 +22,6 @@ Key Features:
 - Producer sends messages with unique message_id.
 - Consumer keeps a local store of processed IDs.
 - Duplicate messages are discarded before processing.
+
+- **Non-idempotent → The action changes state in a way that can’t be repeated safely (bank transfer, file append).**
+- **Deduplication → Tracking transaction_id or message_id ensures we don’t accidentally apply the same change twice.**
