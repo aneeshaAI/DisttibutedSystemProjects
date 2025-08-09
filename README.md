@@ -26,7 +26,7 @@ Key Features:
 - **Non-idempotent → The action changes state in a way that can’t be repeated safely (bank transfer, file append).**
 - **Deduplication → Tracking transaction_id or message_id ensures we don’t accidentally apply the same change twice.**
 
-3. Synchronous System Project – "Ping-Pong Game Server"
+# 3. Synchronous System Project – "Ping-Pong Game Server"
 Concept:
 - In a synchronous system, nodes operate in lockstep, and messages have known fixed delays.
 - Both sides wait for the other before proceeding.
@@ -37,6 +37,6 @@ Idea:
 
 Key Point: The round only finishes when both players’ actions are received.
 
-4. Asynchronous System Project – "Chat Without Guarantees"
+# 4. Asynchronous System Project – "Chat Without Guarantees"
 - Concept: No assumptions about message delivery time — messages can be delayed or arrive out of order.
 - Idea: A chat simulator where messages from users may arrive in random order and with random delays.  
