@@ -47,3 +47,16 @@ Concept:
 - Each request is independent and carries all necessary data.
 
 Idea:A simple Flask API that converts currency without storing anything between calls.
+
+Key Point: No session, no stored history — each call computes based on parameters only.
+
+# 6. Stateful System Project – "To-Do List API"
+Concept:
+- Stateful system remembers previous interactions.
+- Server stores data and changes over time.
+
+Idea: Flask API to store and manage a user's to-do list in memory.
+
+Key Point: The server retains the list in tasks across requests — client state depends on prior interactions.
+
+<img width="1059" height="402" alt="image" src="https://github.com/user-attachments/assets/3f055222-e614-4fa0-8491-15ee91d8183f" />
