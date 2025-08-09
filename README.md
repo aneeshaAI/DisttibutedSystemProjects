@@ -11,3 +11,14 @@ Key Features:
 - REST API that accepts a transaction_id, from_account, to_account, amount.
 - Server stores processed transaction_ids in a deduplication cache (Redis or Python set).
 - If a duplicate transaction_id arrives, the request is ignored.
+
+
+ # 2. Message Queue with Deduplication
+Simulate a distributed messaging system where:
+- Messages might be redelivered due to network retries.
+- Deduplication ensures the consumer processes each message only once.
+
+Key Features:
+- Producer sends messages with unique message_id.
+- Consumer keeps a local store of processed IDs.
+- Duplicate messages are discarded before processing.
